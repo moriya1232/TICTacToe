@@ -1,6 +1,7 @@
 package GUI;
 
 import Board.Board;
+import Tiles.Sign;
 import Tiles.Tile;
 import Board.Game;
 
@@ -38,6 +39,20 @@ public class BoardPanel extends JPanel {
             tilePanel.drawTile();
             add(tilePanel);
         }
+        validate();
+        repaint();
+    }
+
+    public void drawWinner(Sign sign) {
+        removeAll();
+        this.board = null;
+        this.tilePanels = null;
+        System.out.println("this winner is: " + sign.toString());
+        JLabel label = new JLabel(sign.toString() + " is Winner!!");
+        label.setBackground(Color.BLACK);
+        setBackground(Color.WHITE);
+        // TODO: set font size!
+        add(label);
         validate();
         repaint();
     }

@@ -57,8 +57,10 @@ public class Game {
         this.boardPanel.drawMove(this.getBoard());
         Sign signWinner = this.getBoard().checkIfWinner();
         if (signWinner != null) {
-            System.out.println("this winner is: " + signWinner.toString());
+
             this.gameDone = true;
+            this.boardPanel.drawWinner(signWinner);
+
             return;
         }
         changeTurn();
