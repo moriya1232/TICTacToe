@@ -14,6 +14,7 @@ public class Game {
     private final Player playerX;
     private final Player playerO;
     private Player playerTurn;
+    public boolean gameDone = false;
 
     public Game(Board board, Player xPlayer, Player oPlayer){
         JFrame jframe = new JFrame("TIC Tac Toe");
@@ -53,8 +54,15 @@ public class Game {
         } else if (this.getPlayerTurn() == this.playerO) {
             this.getBoard().makeTileOccupied(chosenTile.getTileCoordinate(),Sign.O);
         }
-        changeTurn();
         this.boardPanel.drawMove(this.getBoard());
+        Sign signWinner = this.getBoard().checkIfWinner();
+        if (signWinner != null) {
+            System.out.println("this winner is: " + signWinner.toString());
+            this.gameDone = true;
+            return;
+        }
+        changeTurn();
+
 
     }
 

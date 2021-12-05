@@ -21,6 +21,7 @@ public class TilePanel extends JPanel {
         addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                if (game.gameDone) {return;}
                 System.out.println("Tile Pressed: " + tile.getTileCoordinate());
                 game.executeMove(tile);
 
