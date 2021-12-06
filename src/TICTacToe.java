@@ -1,4 +1,5 @@
 import Board.Board;
+import Players.ComputerPlayer;
 import Players.HumanPlayer;
 import Players.Player;
 import Tiles.Sign;
@@ -10,8 +11,9 @@ public class TICTacToe {
     public static void main(String[] args) {
         Board.Builder builder = new Board.Builder();
         Board board = builder.build();
-        Player xPlayer = new HumanPlayer(Sign.X);
+        Player xPlayer = new ComputerPlayer(Sign.X);
         Player oPlayer = new HumanPlayer(Sign.O);
-        new Game(board, xPlayer, oPlayer);
+        Game game = new Game(board, xPlayer, oPlayer);
+
     }
 }

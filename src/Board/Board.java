@@ -1,33 +1,18 @@
 package Board;
-
-import Players.Player;
 import Tiles.EmptyTile;
 import Tiles.OccupiedTile;
 import Tiles.Sign;
 import Tiles.Tile;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-
-
 public class Board {
-    private Tile[] tiles;
+    private final Tile[] tiles;
 
 
     public Board() {
         this.tiles = new Tile[9];
-        this.tiles[0] = new EmptyTile(0);
-        this.tiles[1] = new EmptyTile(1);
-        this.tiles[2] = new EmptyTile(2);
-        this.tiles[3] = new EmptyTile(3);
-        this.tiles[4] = new EmptyTile(4);
-        this.tiles[5] = new EmptyTile(5);
-        this.tiles[6] = new EmptyTile(6);
-        this.tiles[7] = new EmptyTile(7);
-        this.tiles[8] = new EmptyTile(8);
-
+        for (int i=0; i<9; i++) {
+            this.tiles[i] = new EmptyTile(i);
+        }
     }
 
     public Tile getTile(int numTile) {
@@ -70,7 +55,6 @@ public class Board {
         } else if(tiles[2].getSign() != null && tiles[2].getSign() == tiles[4].getSign() && tiles[2].getSign() == tiles[6].getSign()) {
             return tiles[2].getSign(); //slant
         }
-
         return null;
     }
 

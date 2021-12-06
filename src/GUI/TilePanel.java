@@ -1,6 +1,7 @@
 package GUI;
 
 import Board.Game;
+import Players.ComputerPlayer;
 import Tiles.OccupiedTile;
 import Tiles.Tile;
 
@@ -21,7 +22,7 @@ public class TilePanel extends JPanel {
         addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (game.gameDone) {return;}
+                if (game.gameDone || game.getPlayerTurn() instanceof ComputerPlayer) {return;}
                 System.out.println("Tile Pressed: " + tile.getTileCoordinate());
                 game.executeMove(tile);
 
